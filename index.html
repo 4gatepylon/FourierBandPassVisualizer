@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Fourier Transform Viewer</title>
+    <style>
+      .container {
+        display: flex;
+        justify-content: space-around;
+        margin: 20px;
+        flex-wrap: wrap;
+      }
+      .image-container {
+        text-align: center;
+        margin: 10px;
+      }
+      canvas {
+        border: 1px solid #ccc;
+        margin: 5px;
+      }
+      h2 {
+        color: #333;
+        font-family: Arial, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Seems like claude is right? File protocol does not match CORS for server -->
+    <!-- https://stackoverflow.com/questions/10752055/cross-origin-requests-are-only-supported-for-http-error-when-loading-a-local -->
+    <img
+      src="assets/example_images/aesop-wines-12MlCD5KlYw-unsplash.jpg"
+      id="sourceImage"
+      hidden="true"
+    />
+    <div class="container">
+      <div class="image-container" id="originalImageContainer">
+        <h2>Original Image</h2>
+        <!-- <canvas id="originalCanvas"></canvas> -->
+      </div>
+      <div class="image-container" id="magnitudeImageContainer">
+        <h2>Fourier Magnitude</h2>
+        <!-- <canvas id="magnitudeCanvas"></canvas> -->
+      </div>
+      <div class="image-container" id="phaseImageContainer">
+        <h2>Fourier Phase</h2>
+        <!-- <canvas id="phaseCanvas"></canvas> -->
+      </div>
+    </div>
+  </body>
+  <script src="https://unpkg.com/mathjs@14.2.1/lib/browser/math.js"></script>
+  <script src="widget.js"></script>
+</html>
